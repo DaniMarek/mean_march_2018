@@ -1,0 +1,62 @@
+<html>
+<head>
+  <script>
+// In this assignment, complete the function magic_multiply and ensure it passes all the test inputs and matches their results. Modify magic_multiply until all the tests pass. Do not create a new magic_multiply for each test!
+function magic_multiply(x, y){
+	if(y.constructor === String){
+		return "Error: Can not multiply by string";
+	}
+	switch(x.constructor){
+		case String:
+			x = x.repeat (y);
+			break;
+		case Array:
+		  	for (var i = 0; i < x.length; i++) {
+		  		x[i] = x[i]*y;
+		  	}
+		  	break;
+		default:
+		if (x==0 && y==0) {
+			console.log("All inputs 0");
+		}
+		x = x * y;
+	}
+	return x;
+
+}
+
+// Test 1
+// In order to make this test pass, we will need to add logic to magic_multiply. Whenever we call magic_multiply for 5 and 2, the returned result should always be 10. Remember, we must use these specific inputs!
+let test1 = magic_multiply(5, 2);
+console.log(test1);
+// => 10
+
+// Test 2
+let test2 = magic_multiply(0, 0);
+console.log(test2);
+// => "All inputs 0"
+
+// Test 3
+// Hint: You will need to handle your output differently depending on if x is an array or an integer.
+let test3 = magic_multiply([1, 2, 3], 2);
+console.log(test3);
+// => [2, 4, 6]
+
+// Test 4
+let test4 = magic_multiply(7, "three");
+console.log(test4);
+// => "Error: Can not multiply by string"
+
+// Test 5 - Bonus
+// How could we check if an array is an array?
+let test5 = magic_multiply("Brendo", 4);
+console.log(test5);
+// => "BrendoBrendoBrendoBrendo"
+
+
+
+  </script>  
+</head>
+<body> 
+</body>
+</html>

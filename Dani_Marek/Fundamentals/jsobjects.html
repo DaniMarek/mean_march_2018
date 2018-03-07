@@ -1,0 +1,57 @@
+<html>
+<head>
+  <script>
+	//   	Challenge 1
+	// Print all of the students and their cohort.
+	let students = [
+	    {name: 'Remy', cohort: 'Jan'},
+	    {name: 'Genevieve', cohort: 'March'},
+	    {name: 'Chuck', cohort: 'Jan'},
+	    {name: 'Osmund', cohort: 'June'},
+	    {name: 'Nikki', cohort: 'June'},
+	    {name: 'Boris', cohort: 'June'}
+	];
+	for(let info in students){
+		console.log(students[info].name);
+	}
+	
+// here is an object literal with four key-value pairs
+	// let sandwich = {
+	//     cheese: 'Vegan Smoked Gouda',
+	//     meat: 'Breaded Zesty Zucchini',
+	//     sauce: 'Chipotle Aioli',
+	//     veggies: 'Fire Rosted Peppers'
+	// }
+	// // the variable 'topping' is used instead of an index
+	// for(let topping in sandwich){
+	//     // when we log 'topping', we notice it's a key
+	//     console.log(topping);
+	//     // when we pass the key to the 'sandwich' object, we can pull values
+	//     console.log(sandwich[topping]);
+	// }
+	// // when the code above is printed, it will show the items in 'sandwich' with subcategories ('toppings') listed below each sandwich item
+
+	// Challenge 2
+	// Print out the below object to match the example.
+	let users = {
+	    employees: [
+	        {'first_name':  'Miguel', 'last_name' : 'Jones'},
+	        {'first_name' : 'Ernie', 'last_name' : 'Bertson'},
+	        {'first_name' : 'Nora', 'last_name' : 'Lu'},
+	        {'first_name' : 'Sally', 'last_name' : 'Barkyoumb'}
+	    ],
+	    managers: [
+	       {'first_name' : 'Lillian', 'last_name' : 'Chambers'},
+	       {'first_name' : 'Gordon', 'last_name' : 'Poe'}
+	    ]
+	 };
+
+	for(let info in users){
+		console.log(users[info]);
+	}
+
+  </script>  
+</head>
+<body> 
+</body>
+</html>
