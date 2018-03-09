@@ -1,0 +1,63 @@
+<html>
+	<head>
+	 	<title>Ninja Class 1</title>
+	</head>
+	<body> 
+		<script>
+		// Assignment: Ninja Class
+		// Create a new class called Ninja with the following attributes:
+		// name
+		// health
+		// speed (private)
+		// strength (private)
+		// Speed and strength should be 3 by default. Health should be 100 by default.
+		// The Ninja class should have the following methods:
+		// sayName() - This should log that Ninja's name to the console.
+		// showStats() - This should show the Ninja's Strength and Speed, as well as their health.
+		// drinkSake() - This should add +10 Health to the Ninja
+			 function Ninja(name, health = 100){
+			    this.name = name;
+			    this.health = health;
+			    // <---------private--------------->
+			    var speed = 3;
+			    var strength = 3;
+			
+
+			    // <---------methods---------------->
+			    this.sayName = function (){
+			        console.log(`Name: ${this.name}`);
+			        return this;
+			    }
+
+			    this.showStats = function (){
+			    	console.log(`Strength: ${strength}`, `Speed: ${speed}` , `Health: ${this.health}`);
+			    	return this;
+			    }
+
+		        this.drinkSake = function (){
+		        	if (this.health <= 90){
+	    				this.health += 10;
+	    				console.log(`Health: ${this.health}`);
+    					return this;
+    				}
+    				console.log(`Health: ${this.health}`);
+    				return this;
+			    }
+
+			    this.toomuchSake = function (){
+    				this.health -= 30;
+    				console.log(`Health: ${this.health}`);
+					return this;
+			    }
+		}
+		
+			const ninja1 = new Ninja("Lola");
+			ninja1.sayName();
+			ninja1.showStats();
+			ninja1.drinkSake().drinkSake();
+			ninja1.toomuchSake();
+			ninja1.drinkSake().drinkSake().showStats();
+			ninja1.toomuchSake().drinkSake().showStats();
+		</script>  
+	</body>
+</html>

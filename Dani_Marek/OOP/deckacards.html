@@ -1,0 +1,84 @@
+<html>
+<head>
+    <title>Deck of Cards</title>
+</head>
+<body>
+    <script>
+        //Create a Deck class. A deck should have the following functionality:
+            // The Deck should contain the 52 standard cards
+            // The Deck should be able to shuffle
+            // The Deck should be able to reset
+            // The Deck should be able to deal a random card
+            // Deal should return the card that was dealt and remove it from the deck
+        // Now create a Player class. A Player should have the following functionality:
+            // The Player should have a name
+            // The Player should have a hand
+            // The Player should be able to take a card (use the deck.deal method)
+            // The Player should be able to discard a card
+        // Optional:
+            // Create a blackjack game with your deck of cards!
+            // A deck of card image set can be found here
+            // Or Unicode them Unicode for card images!
+        class Deck{
+            constructor(){
+                this.reset();
+                this.shuffle();
+             }   
+            //Fisher-Yates Shuffle 
+            shuffle(){
+                var m = this.cards.length, t, i;
+                while (m){
+                    i = Math.floor(Math.random()* m--);
+                    t = cards[m];
+                    cards[m]; = cards[i];
+                    cards[i] = t;
+                }
+                return this.cards;
+            }
+            // Reset
+            reset(){
+                this.cards = [];
+                let rank = ["A",2,3,4,5,6,7,8,9,10,"J","Q","K"];
+                let suit = ["\u2665","\u2666","\u2660","\u2663"];
+                for (let i = 0; i < 13; i++){
+                    this.cards.push(`${rank[i]}${suit[0]}`); //heart
+                    this.cards.push(`${rank[i]}${suit[1]}`); //diamond
+                    this.cards.push(`${rank[i]}${suit[2]}`); //spade
+                    this.cards.push(`${rank[i]}${suit[3]}`) //club
+                }
+                return this.cards;
+            }
+        //Return dealt card and remove from deck
+            deal(){
+                return this.cards.pop();
+            } 
+        }
+
+        class Player{
+            constructor(name){
+                this.name=name;
+                this.hand=[];
+            }
+            draw(deck){
+                if (deck instanceof Deck){
+                    this.hand.push(deck.deal());
+                    console.log(this.hand);
+                }
+                else console.log("Indicate which deck to draw from.");
+            }
+            // discard last card added to hand
+            discard(){
+                return this.hand.pop();
+            }
+        }
+
+        const d1 = new Deck();
+        console.log(d1.cards);
+        const p1 = new Player("Dani");
+        console.log(p1);
+        p1.draw(d1);
+        
+
+    </script>
+</body>
+</html>
