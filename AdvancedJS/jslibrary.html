@@ -1,0 +1,73 @@
+
+<html>
+<head>
+    <title>JS Library</title>
+</head>
+<body>
+    <script>
+// Assignment I: JavaScript Library
+// Finish the five methods attached to the _ object to create your own custom library.  The purpose of this assignment is to show how a simple JavaScript library can be made.
+// Your mission is to build your own version of the underscore library. Try to get as close as you can to what underscore provides for each example below. 
+
+// To create your own custom JavaScript library, you will just add methods to a JS object! (Later on when we teach you about immediate functions you’ll see how to make this more robust to build libraries like jQuery!).
+
+// Let’s build a few methods of underscore!
+		function each(arr, callback) {
+		  // loop through the array
+		  for(var i = 0; i < arr.length; i++) {
+		    callback(arr[i]); // invoking the callback many times... delegation!
+		  }
+		}
+
+		var _ = {
+		   map: function(arr, callback) {
+		     let array = [];
+		     for (var i = 0; i < arr.length; i++) {
+		     	array.push(callback(arr[i]));
+		     }
+		     return array;
+		   },
+		   reduce: function(arr, callback, memo) { 
+		     for (let i = 0; i < arr.length; i++){
+		     	memo = callback(memo, arr[i]);
+		     }
+		     return memo;
+		   },
+		   find: function(arr, callback) {   
+		        for (let i = 0; i < arr.length; i++){
+		     		if (callback(arr[i])) return arr[i];
+		    	}
+		     	return undefined;
+		   },
+		   filter: function(arr, callback) { 
+		   		let filter = [];
+		   		for (let i= 0; i < arr.length; i++){
+		   			if (callback(arr[i])) filter.push(arr[i]);
+		   		}
+		   		return filter;
+		   },
+		   reject: function() { 
+		   		let reject = [];
+		   		for (let i = 0; i < arr.length; i++){
+		   			if (!callback(arr[i])) reject.push(arr[i]);
+		   		}
+		   		return reject;
+		   }
+		 }
+
+		 // var eachTest = _.each([1,2,3], function(num){console.log(num + "I am from the callback!");});
+		 var mapTest = _.map([1,2,3], function(num){return num*3;});
+		 console.log(mapTest);
+		var evens = _.filter([1, 2, 3, 4, 5, 6], function(num){ return num % 2 == 0; });
+		console.log(evens); // if things are working right, this will return [2,4,6]
+
+
+// you just created a library with 5 methods!
+
+    </script>
+</body>
+</html>
+
+
+ 
+

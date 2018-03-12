@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>Hunting Github</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style type="text/css">
+        
+    </style>
+</head>
+    <body>
+        <script>
+        var button = document.getElementsByClassName("hunt")[0];
+        button.addEventListener("click", buttonClick);
+        function buttonClick(){
+            $.get("https://api.github.com/users/DaniMarek", displayName)
+            
+            function displayName(data){
+                let nametag = document.createElement("p");
+                nametag.innerHTML = data.login;
+                document.getElementsByTagName("body")[0].appendChild(nametag);
+            }
+        }
+
+        // Optional Use promises (either the q library or ES6) instead of callbacks.
+
+
+        </script>
+        <button class="hunt">Display Name</button>
+    </body>
+</html>
